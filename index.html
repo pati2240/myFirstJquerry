@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        #box {
+            width: 50px;
+            height: 50px;
+            background-color: rgb(92, 71, 255);
+            position: absolute;
+            padding: 0;
+            margin: 0;
+            top: 0px;
+            bottom: 0px;
+            right: 0px;
+            left: 0px;
+        }
+
+        #container {
+            position: relative;
+            width: 700px;
+            height: 500px;
+            background-color: yellow;
+            margin: 0px auto;
+        }
+    </style>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        $(function () {
+            $("#up").click(function () {
+                if ($("#box").position().top > 0) {
+                    $("#box").animate({
+                        top: "-=50px",
+                    }, 500);
+                };
+            });
+            $("#down").click(function () {
+                if($("#box").position().top  < $("#container").height() - $("#box").height()){
+                                    $("#box").animate({
+                    top: "+=50px",
+                }, 500);
+                }
+            });
+            $("#left").click(function () {
+                if($("#box").position().left > 0){
+                $("#box").animate({
+                    left: "-=50px",
+                }, 500);
+                }
+            });
+            $("#right").click(function () {
+                if($("#box").position().left < $("#container").width() - $("#box").width()){
+                $("#box").animate({
+                    left: "+=50px",
+                }, 500);                    
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button id="up" class="btn">UP</button>
+    <button id="down" class="btn">DOWN</button>
+    <button id="left" class="btn">LEFT</button>
+    <button id="right" class="btn">RIGHT</button>
+    <div id="container">
+        <div id="box">
+        </div>
+    </div>
+</body>
+
+</html>
